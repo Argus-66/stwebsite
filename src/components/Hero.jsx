@@ -95,7 +95,7 @@ export default function Hero() {
             }
             if (middleText) {
                 // Middle text flows DOWN smoothly with scroll
-                const middleTextTop = 50 + (middleTextY * 0.8); // Move from 50% to ~78% (bottom area)
+                const middleTextTop = 50 + (middleTextY * 1.14); // Move from 50% to ~78% (bottom area)
                 middleText.style.top = `${middleTextTop}%`;
                 middleText.style.transform = `translateX(-50%)`;
             }
