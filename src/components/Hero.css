@@ -15,37 +15,76 @@
     background: radial-gradient(circle at center, #6e0a0a 0%, #a40000 35%, #5a0000 100%);
 }
 
-/* Common image styles */
+/* Individual images within containers */
 .img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+    -webkit-user-drag: none;
+    pointer-events: none;
+    user-select: none;
+    display: block;
+}
+
+/* Card containers */
+.card-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform-origin: center center;
     transform: translate(-50%, -50%) scale(0.28);
-    opacity: 0;
-    transition: transform 0.12s linear, opacity 0.12s linear;
     pointer-events: none;
     user-select: none;
     will-change: transform, opacity;
-    max-width: none;
-    border-radius: 18px;
-    -webkit-user-drag: none;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
 }
 
-/* Middle image (visible from start) */
-.middle {
+/* Text overlays */
+.card-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: clamp(18px, 3.2vw, 32px);
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    opacity: 1;
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    transition: all 0.4s ease-out;
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.8)) drop-shadow(0 0 30px rgba(255,255,255,0.4));
+}
+
+/* Text at bottom position */
+.card-text.bottom {
+    top: auto;
+    bottom: 40px;
+    transform: translateX(-50%);
+}
+
+/* Container specific positioning */
+.middle-container {
     z-index: 5;
     opacity: 1;
     width: clamp(220px, 28vw, 460px);
-    transform: translate(-50%, -50%) scale(0.28);
+    transform: translate(-50%, -50%) scale(0.22);
 }
 
-/* Left & right (start hidden, behind middle) */
-.left,
-.right {
+.left-container,
+.right-container {
     z-index: 3;
-    width: clamp(220px, 28vw, 460px); /* same as middle */
-    transform: translate(-50%, -50%) scale(0.28);
+    width: clamp(220px, 28vw, 460px);
+    transform: translate(-50%, -50%) scale(0.22);
+    opacity: 0;
+}
+
+/* Hide side text initially */
+.left-text,
+.right-text {
     opacity: 0;
 }
